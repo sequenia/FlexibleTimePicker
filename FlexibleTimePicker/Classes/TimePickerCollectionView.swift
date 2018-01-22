@@ -104,8 +104,10 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     }
     
     func setDisabledCellSelectionStyle(_ cell: inout TimePickerCollectionViewCell, textColor: UIColor, backgroundColor: UIColor) {
-        setCellSelectionStyle(&cell, textColor: textColor, backgroundColor: backgroundColor)
-        cell.layer.opacity = 0.5
+        let opacity = CGFloat(0.3)
+        cell.timeLabel.textColor = textColor.withAlphaComponent(opacity)
+        cell.backgroundColor = backgroundColor.withAlphaComponent(opacity)
+        cell.rectangleLines.lineColor = self.cellBorderColor.withAlphaComponent(opacity)
     }
     
     //MARK: Data methods
@@ -272,12 +274,12 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
         if contains.0 {
             self.setCellSelectionStyle(&cell, textColor: cellHighlightedTextColor, backgroundColor: self.cellBorderColor)
         } else {
-            self.setCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
-        }
-        
-        if self.disabledHours.contains(cellText) {
-            cell.isUserInteractionEnabled = false
-            self.setDisabledCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
+            if self.disabledHours.contains(cellText) {
+                cell.isUserInteractionEnabled = false
+                self.setDisabledCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
+            } else {
+                self.setCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
+            }
         }
         return cell
     }

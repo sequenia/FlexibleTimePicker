@@ -1,22 +1,22 @@
 {
   "name": "FlexibleTimePicker",
   "version": "0.1.0",
-  "summary": "A short description of FlexibleTimePicker.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/ebrugungorist@gmail.com/FlexibleTimePicker",
+  "summary": "A simple and flexible time picker widget",
+  "description": "With this time picker widget, you will be able to add a flexible and easy to use time picker.",
+  "homepage": "https://github.com/ebrugungor/FlexibleTimePicker",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "ebrugungorist@gmail.com": "ebrugungorist@gmail.com"
+    "ebrugungor": "ebrugungorist@gmail.com"
   },
   "source": {
-    "git": "https://github.com/ebrugungorist@gmail.com/FlexibleTimePicker.git",
+    "git": "https://github.com/ebrugungor/FlexibleTimePicker.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "source_files": "FlexibleTimePicker/Classes/**/*"
 }

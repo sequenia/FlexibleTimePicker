@@ -19,7 +19,6 @@
 		926B7AF5697C8EC5404EC544445122BE /* TimePickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2316F74068537C62DD52094F22710FD3 /* TimePickerCollectionViewCell.swift */; };
 		9F51313288C4618C14862E534BB17C01 /* Pods-FlexibleTimePicker_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C1DE5DDC00EB1BEE55E83EE31BACE09 /* Pods-FlexibleTimePicker_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2517A3B5F5D2BFF92310813898C012A /* CellBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC99B8C7203A2D07B15FEEFA143DE239 /* CellBorderView.swift */; };
-		BA3A02632E73180107CE55A8FA89FD00 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACA5271142FF2536F3907D9CD0F0A2C /* ReplaceMe.swift */; };
 		BFAC467C59C89D8D2C84A198E171E55D /* Pods-FlexibleTimePicker_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E55427C188B4D140EBA73BF1F66E2CA /* Pods-FlexibleTimePicker_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3F6A91C33E0D9CB2949A47F9CEFCE92 /* TimePickerCollectionViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 23F54CEA13187CDBA60D0031EC021672 /* TimePickerCollectionViewCell.xib */; };
 		CDF2D6B32C76CC25A68B95CE092573DF /* FlexibleTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA8D9790EB2C1F592C327668367FA7 /* FlexibleTimePicker.swift */; };
@@ -62,7 +61,6 @@
 		5FF0F427D66F7C0FDCF545C545C299F0 /* TimePickerCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimePickerCollectionView.swift; path = FlexibleTimePicker/Classes/TimePickerCollectionView.swift; sourceTree = "<group>"; };
 		64897234969880286E30EFFDE73E2398 /* FlexibleTimePicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlexibleTimePicker.xcconfig; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6ACA5271142FF2536F3907D9CD0F0A2C /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = FlexibleTimePicker/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		75D562D33C49F924C4F9B42B859EB4B8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8087E4ACBA524E88E06C0DCDC2C9AEF0 /* Pods-FlexibleTimePicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FlexibleTimePicker_Example.modulemap"; sourceTree = "<group>"; };
 		80F64E9303D4146F811D313F94F04656 /* Pods_FlexibleTimePicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlexibleTimePicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +214,6 @@
 				38AA8D9790EB2C1F592C327668367FA7 /* FlexibleTimePicker.swift */,
 				4E6BFA75F982FA1668402545FABABE0E /* FlexibleTimePicker.xib */,
 				A9EB02C77D51F0D22207E8AC9BB769D8 /* Hour.swift */,
-				6ACA5271142FF2536F3907D9CD0F0A2C /* ReplaceMe.swift */,
 				A7B6E2B5EA85A00FE12FEEA17A815C45 /* TimeFrequency.swift */,
 				5FF0F427D66F7C0FDCF545C545C299F0 /* TimePickerCollectionView.swift */,
 				2316F74068537C62DD52094F22710FD3 /* TimePickerCollectionViewCell.swift */,
@@ -325,7 +322,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -374,7 +371,6 @@
 				CDF2D6B32C76CC25A68B95CE092573DF /* FlexibleTimePicker.swift in Sources */,
 				37187A08B7A53E9D0999376C334FF9B9 /* FlexibleTimePicker.xib in Sources */,
 				82A5458D25F1EEFF257CCBDB9CD90592 /* Hour.swift in Sources */,
-				BA3A02632E73180107CE55A8FA89FD00 /* ReplaceMe.swift in Sources */,
 				45BA40DE6117277D1F94472366EA95FC /* TimeFrequency.swift in Sources */,
 				DE8175FCB401B4B63B65678D1E2A285B /* TimePickerCollectionView.swift in Sources */,
 				926B7AF5697C8EC5404EC544445122BE /* TimePickerCollectionViewCell.swift in Sources */,
@@ -394,6 +390,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1297D962FD2A487D032BE0DA0D8A598D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64897234969880286E30EFFDE73E2398 /* FlexibleTimePicker.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FlexibleTimePicker/FlexibleTimePicker-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FlexibleTimePicker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FlexibleTimePicker/FlexibleTimePicker.modulemap";
+				PRODUCT_NAME = FlexibleTimePicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		1D5F050E303B2002F2EF66597F233EAA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 824EF841547E2F30234864E335ADFDBF /* Pods-FlexibleTimePicker_Tests.debug.xcconfig */;
@@ -426,7 +454,7 @@
 			};
 			name = Debug;
 		};
-		659086D5D7F89282B76F08F569E3F2A0 /* Debug */ = {
+		75C129BA1670FF3CD362F19CCD4DFBD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64897234969880286E30EFFDE73E2398 /* FlexibleTimePicker.xcconfig */;
 			buildSettings = {
@@ -442,7 +470,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FlexibleTimePicker/FlexibleTimePicker-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FlexibleTimePicker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FlexibleTimePicker/FlexibleTimePicker.modulemap";
 				PRODUCT_NAME = FlexibleTimePicker;
@@ -568,40 +596,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		ADE5674BB4C69F1ABC5F7166F7AFE822 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64897234969880286E30EFFDE73E2398 /* FlexibleTimePicker.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FlexibleTimePicker/FlexibleTimePicker-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FlexibleTimePicker/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FlexibleTimePicker/FlexibleTimePicker.modulemap";
-				PRODUCT_NAME = FlexibleTimePicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -730,8 +725,8 @@
 		AD29687AAF5AB4A196A60E5AE4B2D446 /* Build configuration list for PBXNativeTarget "FlexibleTimePicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				659086D5D7F89282B76F08F569E3F2A0 /* Debug */,
-				ADE5674BB4C69F1ABC5F7166F7AFE822 /* Release */,
+				75C129BA1670FF3CD362F19CCD4DFBD8 /* Debug */,
+				1297D962FD2A487D032BE0DA0D8A598D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

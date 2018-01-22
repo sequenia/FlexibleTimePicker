@@ -13,17 +13,17 @@ public class FlexibleTimePicker: UIView, TimePickedDelegate {
     
     //MARK: Container
     
-    @IBInspectable var fromCurrentHour: Bool = false
-    @IBInspectable var startHour: Int = 1
-    @IBInspectable var endHour: Int = 24
+    @IBInspectable public var fromCurrentHour: Bool = false
+    @IBInspectable public var startHour: Int = 1
+    @IBInspectable public var endHour: Int = 24
     
-    @IBInspectable var allowsMultipleSelection: Bool = false
-    @IBInspectable var scaleCellHeightToFit: Bool = false
+    @IBInspectable public var allowsMultipleSelection: Bool = false
+    @IBInspectable public var scaleCellHeightToFit: Bool = false
     
-    @IBInspectable var removeCellBorders:Bool = false
+    @IBInspectable public var removeCellBorders:Bool = false
     
     var timeFrequency: TimeFrequency = .FullHour
-    @IBInspectable var minuteFrequency : Int {
+    @IBInspectable public var minuteFrequency : Int {
         get {
             return self.timeFrequency.rawValue
         }
@@ -34,14 +34,14 @@ public class FlexibleTimePicker: UIView, TimePickedDelegate {
     
     //MARK: Cell
     
-    @IBInspectable var cellBorderThickness: CGFloat = 0.10
-    @IBInspectable var cellBorderColor: UIColor! = UIColor.lightGray
-    @IBInspectable var cellOnlyBottomBorder: Bool = false
-    @IBInspectable var cellHeight: CGFloat = 40
-    @IBInspectable var cellCountPerRow: Int = 4
-    @IBInspectable var cellTextColor : UIColor = UIColor.black
-    @IBInspectable var cellHighlightedTextColor: UIColor = UIColor.white
-    @IBInspectable var cellBackgroundColor: UIColor = UIColor.white
+    @IBInspectable public var cellBorderThickness: CGFloat = 0.10
+    @IBInspectable public var cellBorderColor: UIColor! = UIColor.lightGray
+    @IBInspectable public var cellOnlyBottomBorder: Bool = false
+    @IBInspectable public var cellHeight: CGFloat = 40
+    @IBInspectable public var cellCountPerRow: Int = 4
+    @IBInspectable public var cellTextColor : UIColor = UIColor.black
+    @IBInspectable public var cellHighlightedTextColor: UIColor = UIColor.white
+    @IBInspectable public var cellBackgroundColor: UIColor = UIColor.white
     
     
     @IBOutlet var view: UIView!
@@ -51,9 +51,10 @@ public class FlexibleTimePicker: UIView, TimePickedDelegate {
     
     //MARK: Init
     
-    
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
+        self.commonInit()
+        self.setProperties()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -63,22 +64,11 @@ public class FlexibleTimePicker: UIView, TimePickedDelegate {
     
     override public func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.collectionView.setProperties(timeFrequency: timeFrequency,
-                                          fromCurrentHour: fromCurrentHour,
-                                          startHour: startHour,
-                                          endHour: endHour,
-                                          multipleSelection: allowsMultipleSelection,
-                                          removeCellBorders: removeCellBorders,
-                                          cellThickness: cellBorderThickness,
-                                          cellBorderColor: cellBorderColor,
-                                          onlyBottomBorder: cellOnlyBottomBorder,
-                                          scaleCellHeightToFit: scaleCellHeightToFit,
-                                          cellHeight: cellHeight,
-                                          cellCountPerRow: cellCountPerRow,
-                                          cellTextColor: cellTextColor,
-                                          cellHighlightedTextColor: cellHighlightedTextColor,
-                                          cellBackgroundColor: cellBackgroundColor)
+        self.setProperties()
+    }
+    
+    private func setProperties() {
+        self.refreshUI()
         self.collectionView.timeDelegate = self
     }
     
@@ -98,6 +88,24 @@ public class FlexibleTimePicker: UIView, TimePickedDelegate {
     }
     
     //MARK: UI
+    
+    public func refreshUI() {
+        self.collectionView.setProperties(timeFrequency: timeFrequency,
+                                          fromCurrentHour: fromCurrentHour,
+                                          startHour: startHour,
+                                          endHour: endHour,
+                                          multipleSelection: allowsMultipleSelection,
+                                          removeCellBorders: removeCellBorders,
+                                          cellThickness: cellBorderThickness,
+                                          cellBorderColor: cellBorderColor,
+                                          onlyBottomBorder: cellOnlyBottomBorder,
+                                          scaleCellHeightToFit: scaleCellHeightToFit,
+                                          cellHeight: cellHeight,
+                                          cellCountPerRow: cellCountPerRow,
+                                          cellTextColor: cellTextColor,
+                                          cellHighlightedTextColor: cellHighlightedTextColor,
+                                          cellBackgroundColor: cellBackgroundColor)
+    }
     
     public func setAvailability(availableHours:[AvailableHour]) {
         collectionView.setAvailability(availableHours:availableHours)

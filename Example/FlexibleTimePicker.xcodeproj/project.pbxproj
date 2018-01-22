@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		7DEF038720163D300021D35B /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF038620163D300021D35B /* CodeViewController.swift */; };
 		8786BD42213732F512914F62 /* Pods_FlexibleTimePicker_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052391F5BD69E0B7C8B68D05 /* Pods_FlexibleTimePicker_Tests.framework */; };
 		C35C2B9AE5E6CD87C5A98156 /* Pods_FlexibleTimePicker_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CC7CDEE87FFC04564B18A /* Pods_FlexibleTimePicker_Example.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		607FACE51AFB9204008FA782 /* FlexibleTimePicker_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlexibleTimePicker_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		7DEF038620163D300021D35B /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		844F969023C7D2ED293D9F64 /* FlexibleTimePicker.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FlexibleTimePicker.podspec; path = ../FlexibleTimePicker.podspec; sourceTree = "<group>"; };
 		88A9ABD612652000F10836B4 /* Pods-FlexibleTimePicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlexibleTimePicker_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlexibleTimePicker_Tests/Pods-FlexibleTimePicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		96421AEF01E74E2BB43957CB /* Pods-FlexibleTimePicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlexibleTimePicker_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlexibleTimePicker_Tests/Pods-FlexibleTimePicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				7DEF038620163D300021D35B /* CodeViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DEF038720163D300021D35B /* CodeViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
