@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FlexibleTimePicker_Example' do
+  pod 'FlexibleTimePicker', :path => '../'
+
+  target 'FlexibleTimePicker_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

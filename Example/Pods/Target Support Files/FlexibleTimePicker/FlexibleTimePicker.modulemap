@@ -1,0 +1,6 @@
+framework module FlexibleTimePicker {
+  umbrella header "FlexibleTimePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
