@@ -35,7 +35,6 @@ class CodeViewController: UIViewController {
         flexibleTimePicker?.cellHeight = 50
         flexibleTimePicker?.cellCountPerRow = 5
 
-        
         flexibleTimePicker?.refreshUI()
     }
 }
