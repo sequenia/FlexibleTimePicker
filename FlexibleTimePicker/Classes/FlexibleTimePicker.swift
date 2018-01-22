@@ -34,7 +34,7 @@ public class FlexibleTimePicker: UIView, TimePickedDelegate {
     
     //MARK: Cell
     
-    @IBInspectable var cellThickness: CGFloat = 0.10
+    @IBInspectable var cellBorderThickness: CGFloat = 0.10
     @IBInspectable var cellBorderColor: UIColor! = UIColor.lightGray
     @IBInspectable var cellOnlyBottomBorder: Bool = false
     @IBInspectable var cellHeight: CGFloat = 40
@@ -70,7 +70,7 @@ public class FlexibleTimePicker: UIView, TimePickedDelegate {
                                           endHour: endHour,
                                           multipleSelection: allowsMultipleSelection,
                                           removeCellBorders: removeCellBorders,
-                                          cellThickness: cellThickness,
+                                          cellThickness: cellBorderThickness,
                                           cellBorderColor: cellBorderColor,
                                           onlyBottomBorder: cellOnlyBottomBorder,
                                           scaleCellHeightToFit: scaleCellHeightToFit,
