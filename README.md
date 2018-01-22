@@ -3,7 +3,8 @@ With this time picker widget, you will be able to add a flexible and easy to use
 
 Example design:
 
-## Warning: Date picker in the image credits to: ![CLWeeklyCalendarView](https://github.com/clisuper/CLWeeklyCalendarView)
+### Note: The date picker shown in the picture is not included in this pod, credits to: ![CLWeeklyCalendarView](https://github.com/clisuper/CLWeeklyCalendarView)
+
 ![unnamed-12.jpg](https://s13.postimg.org/45ar6i9fb/unnamed-12.jpg)
 
 
