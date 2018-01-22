@@ -259,6 +259,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as! TimePickerCollectionViewCell
+        cell.isUserInteractionEnabled = true
         cell.setBorderProperties(removeBorders: self.removeCellBorders,
                                  thickness: self.cellThickness,
                                  borderColor: self.cellBorderColor,
