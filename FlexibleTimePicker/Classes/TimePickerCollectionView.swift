@@ -216,7 +216,6 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     
     func setAvailability(availableHours:[AvailableHour]) {
         let hours = availableHours.map { (availableHour) -> (String, String, String, String) in
-            
             dateFormatter.dateFormat = "HH"
             dateFormatter.timeZone = TimeZone.autoupdatingCurrent
             let startHour = dateFormatter.string(from: availableHour.startHour)
@@ -273,13 +272,11 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
         let contains =  self.checkContains(indexPath: indexPath)
         if contains.0 {
             self.setCellSelectionStyle(&cell, textColor: cellHighlightedTextColor, backgroundColor: self.cellBorderColor)
+        } else if self.disabledHours.contains(cellText) {
+            cell.isUserInteractionEnabled = false
+            self.setDisabledCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
         } else {
-            if self.disabledHours.contains(cellText) {
-                cell.isUserInteractionEnabled = false
-                self.setDisabledCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
-            } else {
-                self.setCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
-            }
+            self.setCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
         }
         return cell
     }
@@ -332,7 +329,5 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
             ordered = chosenHours.sorted(by: { $0.index < $1.index } )
         }
         self.timeDelegate?.timePicked(chosenHours: ordered)
-        
     }
-    
 }
