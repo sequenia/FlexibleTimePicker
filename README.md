@@ -97,6 +97,24 @@ Following properties can be set:
         flexibleTimePicker?.refreshUI()
     }
 
+## Return picked hour as an array
+
+1. Add FlexibleTimePickedDelegate to the UIViewController that you have FlexibleTimePicker object.
+2. Assign delegate to the UIViewController --> self.flexibleTimePicker.delegate = self
+3. Add delegate method called : timePicked.
+
+
+        func timePicked(chosenHours: [Hour]) {
+            //ordered hour strings as an array
+            print("Hours: \(chosenHours)")
+            
+            let dates = self.flexibleTimePicker.getSelectedDateSlotsForToday()
+            print("Chosen dates for today: \(dates)")
+            
+            let datesForYesterday = self.flexibleTimePicker.getSelectedDateSlotsForDate(date: Date().dayBefore)
+            print("Day before: \(datesForYesterday)")
+        }
+
 
 Please contact with me directly  from ebrugungorist@gmail.com, in case of any new feature request. I will be happy to provide more support. :)
 
