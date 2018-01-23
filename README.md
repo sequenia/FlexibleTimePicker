@@ -97,7 +97,7 @@ Following properties can be set:
         flexibleTimePicker?.refreshUI()
     }
 
-## Return picked hour as an array
+## Return picked hour(s) as an array
 
 1. Add FlexibleTimePickedDelegate to the UIViewController that you have FlexibleTimePicker object.
 2. Assign delegate to the UIViewController --> self.flexibleTimePicker.delegate = self
