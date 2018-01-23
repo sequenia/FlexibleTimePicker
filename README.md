@@ -98,4 +98,6 @@ Following properties can be set:
     }
 
 
+Please contact with me directly  from ebrugungorist@gmail.com, in case of any new feature request. I will be happy to provide more support. :)
+
 
