@@ -8,7 +8,12 @@
 
 import UIKit
 
-struct Hour {
+public struct Hour {
     var hourString:String
     var index:Int
+    
+    public init(hourString: String, index:Int) {
+        self.hourString = hourString
+        self.index = index
+    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 
-protocol TimePickedDelegate: NSObjectProtocol {
+public protocol FlexibleTimePickedDelegate: NSObjectProtocol {
     func timePicked(chosenHours:[Hour])
 }
 
@@ -25,7 +25,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     private let finalHour = 24
     private let dateFormatter = DateFormatter()
 
-    weak open var timeDelegate: TimePickedDelegate?
+    weak open var timeDelegate: FlexibleTimePickedDelegate?
     
     var timeFrequency: TimeFrequency = .FullHour
     var fromCurrentHour: Bool = false
@@ -235,7 +235,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
         
         self.disabledHours = disabledHours
         self.reloadData()
-        print(disabledHours)
+        //print(disabledHours)
     }
     
     //MARK: Check methods

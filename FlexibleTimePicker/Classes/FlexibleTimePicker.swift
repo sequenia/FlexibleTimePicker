@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class FlexibleTimePicker: UIView, TimePickedDelegate {
+public class FlexibleTimePicker: UIView, FlexibleTimePickedDelegate {
     
     //MARK: Container
     
@@ -47,7 +47,9 @@ public class FlexibleTimePicker: UIView, TimePickedDelegate {
     @IBOutlet var view: UIView!
     @IBOutlet weak var collectionView: TimePickerCollectionView!
     
-    private var chosenHours = [Hour]()
+    public var chosenHours = [Hour]()
+    
+    public weak var delegate: FlexibleTimePickedDelegate?
     
     //MARK: Init
     
@@ -80,11 +82,12 @@ public class FlexibleTimePicker: UIView, TimePickedDelegate {
         self.addSubview(content)
     }
     
-    //MARK: TimePickedDelegate
+    //MARK: FlexibleTimePickedDelegate
     
-    func timePicked(chosenHours: [Hour]) {
+    public func timePicked(chosenHours: [Hour]) {
         self.chosenHours = chosenHours
-        print(getSelectedTimeSlots())
+        self.delegate?.timePicked(chosenHours: chosenHours)
+        //print(getSelectedTimeSlots())
     }
     
     //MARK: UI

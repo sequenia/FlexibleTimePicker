@@ -9,14 +9,16 @@
 import UIKit
 import FlexibleTimePicker
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, FlexibleTimePickedDelegate {
+    
     @IBOutlet weak var flexibleTimePicker: FlexibleTimePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.setAvailability()
+        self.flexibleTimePicker.delegate = self
+        
     }
     
     func setAvailability() {
@@ -40,6 +42,15 @@ class ViewController: UIViewController {
         let available2 = AvailableHour(startHour: startDate2!, endHour: endDate2!)
         let availableHours = [available1, available2]
         self.flexibleTimePicker.setAvailability(availableHours: availableHours)
+    }
+    
+    func timePicked(chosenHours: [Hour]) {
+        //To print date for specific object
+        print("Hours: \(chosenHours)")
+        let dates = self.flexibleTimePicker.getSelectedDateSlotsForToday()
+        print("Chosen dates for today: \(dates)")
+        let datesForYesterday = self.flexibleTimePicker.getSelectedDateSlotsForDate(date: Date().dayBefore)
+        print("Day before: \(datesForYesterday)")
     }
 
     override func didReceiveMemoryWarning() {
