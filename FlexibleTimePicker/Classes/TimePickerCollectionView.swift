@@ -41,6 +41,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     
     var cellHeight: CGFloat = 40
     var cellCountPerRow: Int = 4
+    var cellTextFont: UIFont?
     
     var cellTextColor : UIColor = UIColor.black
     var cellHighlightedTextColor: UIColor = UIColor.white
@@ -60,7 +61,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     
     //MARK: UI methods
     
-    func setProperties(timeFrequency:TimeFrequency, fromCurrentHour: Bool, startHour: Int, endHour: Int, multipleSelection:Bool, removeCellBorders:Bool, cellThickness:CGFloat, cellBorderColor:UIColor, onlyBottomBorder:Bool, scaleCellHeightToFit: Bool, cellHeight: CGFloat, cellCountPerRow: Int, cellTextColor: UIColor, cellHighlightedTextColor: UIColor, cellBackgroundColor: UIColor) {
+    func setProperties(timeFrequency:TimeFrequency, fromCurrentHour: Bool, startHour: Int, endHour: Int, multipleSelection:Bool, removeCellBorders:Bool, cellThickness:CGFloat, cellBorderColor:UIColor, onlyBottomBorder:Bool, scaleCellHeightToFit: Bool, cellHeight: CGFloat, cellCountPerRow: Int, cellTextColor: UIColor, cellHighlightedTextColor: UIColor, cellBackgroundColor: UIColor, cellTextFont: UIFont?) {
         self.timeFrequency = timeFrequency
         self.fromCurrentHour = fromCurrentHour
         self.startHour = startHour
@@ -76,6 +77,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
         self.cellTextColor = cellTextColor
         self.cellHighlightedTextColor = cellHighlightedTextColor
         self.cellBackgroundColor = cellBackgroundColor
+        self.cellTextFont = cellTextFont
         self.refreshUI()
     }
     
@@ -133,7 +135,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
                     minute = 0
                 }
                 let minuteString = self.getHourString(i: minute)
-                tempArray.append("\(hourString):\(minuteString)")
+                tempArray.append("\(hourString):\(minuteString.count == 2 ? minuteString : "0\(minuteString)")")
             }
         }
         let end = getHourString(i: endHour)
@@ -144,7 +146,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     func getHourString(i:Int) -> String {
         var hourString: String = "\(i)"
         if(i < 10) {
-            hourString = "0\(i)"
+            hourString = "\(i)"
         }
         return hourString
     }
@@ -208,7 +210,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
         } else {
             //if the start hour is not visible on the screen.
             let startInt = Int(hourString.prefix(2))
-            if start && index == nil && startInt! > Int(hour)! {
+            if start && index == nil && startInt ?? Int(hourString.prefix(1))! > Int(hour)! {
                 index = self.hourArray.index(of: hourString)
             }
         }
@@ -216,6 +218,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     
     func setAvailability(availableHours:[AvailableHour]) {
         let hours = availableHours.map { (availableHour) -> (String, String, String, String) in
+            
             dateFormatter.dateFormat = "HH"
             dateFormatter.timeZone = TimeZone.autoupdatingCurrent
             let startHour = dateFormatter.string(from: availableHour.startHour)
@@ -268,15 +271,20 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
         
         let cellText = self.hourArray[(indexPath as NSIndexPath).row]
         cell.timeLabel.text = cellText
+        if let font = self.cellTextFont {
+            cell.timeLabel.font = font
+        }
         
         let contains =  self.checkContains(indexPath: indexPath)
         if contains.0 {
             self.setCellSelectionStyle(&cell, textColor: cellHighlightedTextColor, backgroundColor: self.cellBorderColor)
-        } else if self.disabledHours.contains(cellText) {
-            cell.isUserInteractionEnabled = false
-            self.setDisabledCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
         } else {
-            self.setCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
+            if self.disabledHours.contains(cellText) {
+                cell.isUserInteractionEnabled = false
+                self.setDisabledCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
+            } else {
+                self.setCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
+            }
         }
         return cell
     }
@@ -329,5 +337,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
             ordered = chosenHours.sorted(by: { $0.index < $1.index } )
         }
         self.timeDelegate?.timePicked(chosenHours: ordered)
+        
     }
+    
 }

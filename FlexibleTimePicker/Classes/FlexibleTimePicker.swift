@@ -42,6 +42,7 @@ public class FlexibleTimePicker: UIView, FlexibleTimePickedDelegate {
     @IBInspectable public var cellTextColor : UIColor = UIColor.black
     @IBInspectable public var cellHighlightedTextColor: UIColor = UIColor.white
     @IBInspectable public var cellBackgroundColor: UIColor = UIColor.white
+    public var cellTextFont: UIFont?
     
     
     @IBOutlet var view: UIView!
@@ -107,7 +108,8 @@ public class FlexibleTimePicker: UIView, FlexibleTimePickedDelegate {
                                           cellCountPerRow: cellCountPerRow,
                                           cellTextColor: cellTextColor,
                                           cellHighlightedTextColor: cellHighlightedTextColor,
-                                          cellBackgroundColor: cellBackgroundColor)
+                                          cellBackgroundColor: cellBackgroundColor,
+                                          cellTextFont: cellTextFont)
     }
     
     public func setAvailability(availableHours:[AvailableHour]) {
