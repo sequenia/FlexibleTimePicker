@@ -8,8 +8,8 @@
 import UIKit
 
 public struct AvailableHour {
-    var startHour: Date
-    var endHour: Date
+    public var startHour: Date
+    public var endHour: Date
     
     public init(startHour: Date, endHour:Date) {
         self.startHour = startHour

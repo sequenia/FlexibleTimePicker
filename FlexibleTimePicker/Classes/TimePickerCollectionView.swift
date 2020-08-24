@@ -14,7 +14,7 @@ public protocol FlexibleTimePickedDelegate: NSObjectProtocol {
 }
 
 @IBDesignable
-class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+public class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     private var hourArray = [String]()
     private var disabledHours = [String]()
@@ -135,7 +135,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
                     minute = 0
                 }
                 let minuteString = self.getHourString(i: minute)
-                tempArray.append("\(hourString):\(minuteString.count == 2 ? minuteString : "0\(minuteString)")")
+                tempArray.append("\(hourString):\(minuteString)")
             }
         }
         let end = getHourString(i: endHour)
@@ -146,7 +146,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     func getHourString(i:Int) -> String {
         var hourString: String = "\(i)"
         if(i < 10) {
-            hourString = "\(i)"
+            hourString = "0\(i)"
         }
         return hourString
     }
@@ -210,7 +210,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
         } else {
             //if the start hour is not visible on the screen.
             let startInt = Int(hourString.prefix(2))
-            if start && index == nil && startInt ?? Int(hourString.prefix(1))! > Int(hour)! {
+            if start && index == nil && startInt! > Int(hour)! {
                 index = self.hourArray.index(of: hourString)
             }
         }
@@ -218,7 +218,6 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     
     func setAvailability(availableHours:[AvailableHour]) {
         let hours = availableHours.map { (availableHour) -> (String, String, String, String) in
-            
             dateFormatter.dateFormat = "HH"
             dateFormatter.timeZone = TimeZone.autoupdatingCurrent
             let startHour = dateFormatter.string(from: availableHour.startHour)
@@ -261,7 +260,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     
     //MARK: UICollectionView Delegate and Datasource methods
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as! TimePickerCollectionViewCell
         cell.isUserInteractionEnabled = true
         cell.setBorderProperties(removeBorders: self.removeCellBorders,
@@ -278,22 +277,20 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
         let contains =  self.checkContains(indexPath: indexPath)
         if contains.0 {
             self.setCellSelectionStyle(&cell, textColor: cellHighlightedTextColor, backgroundColor: self.cellBorderColor)
+        } else if self.disabledHours.contains(cellText) {
+            cell.isUserInteractionEnabled = false
+            self.setDisabledCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
         } else {
-            if self.disabledHours.contains(cellText) {
-                cell.isUserInteractionEnabled = false
-                self.setDisabledCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
-            } else {
-                self.setCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
-            }
+            self.setCellSelectionStyle(&cell, textColor: cellTextColor, backgroundColor: cellBackgroundColor)
         }
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return hourArray.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let margin = CGFloat(5 * self.cellCountPerRow)
         let viewWidth = self.frame.size.width - margin
         let cellWidth = viewWidth / CGFloat(self.cellCountPerRow)
@@ -313,7 +310,7 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let contains =  self.checkContains(indexPath: indexPath)
         let hour = Hour(hourString: self.hourArray[contains.1], index: contains.1)
         var cell = self.cellForItem(at: indexPath) as! TimePickerCollectionViewCell
@@ -337,7 +334,5 @@ class TimePickerCollectionView: UICollectionView, UICollectionViewDelegate, UICo
             ordered = chosenHours.sorted(by: { $0.index < $1.index } )
         }
         self.timeDelegate?.timePicked(chosenHours: ordered)
-        
     }
-    
 }

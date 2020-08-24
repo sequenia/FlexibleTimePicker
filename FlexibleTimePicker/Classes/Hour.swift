@@ -9,8 +9,8 @@
 import UIKit
 
 public struct Hour {
-    public var hourString:String
-    public var index:Int
+    var hourString:String
+    var index:Int
     
     public init(hourString: String, index:Int) {
         self.hourString = hourString

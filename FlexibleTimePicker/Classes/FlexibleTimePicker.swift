@@ -44,9 +44,8 @@ public class FlexibleTimePicker: UIView, FlexibleTimePickedDelegate {
     @IBInspectable public var cellBackgroundColor: UIColor = UIColor.white
     public var cellTextFont: UIFont?
     
-    
     @IBOutlet var view: UIView!
-    @IBOutlet weak var collectionView: TimePickerCollectionView!
+    @IBOutlet public weak var collectionView: TimePickerCollectionView!
     
     public var chosenHours = [Hour]()
     
